@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Make a Real Time Reservation</title>
+</head>
+<body>
+	
+	<form th:if="${errorMsg == null && supermarkets != null && !supermarkets.isEmpty()}" action="ComputeETE" method="POST">
+		
+		<label>Select the supermarket:</label>
+		<select name="supermarketid" required>
+			<option disabled selected value> -- select an option -- </option>
+			<option th:each="s : ${supermarkets}" th:text="${s.name} + ',' + ' ' + ${s.address}"  th:attr="value = ${s.id}">
+		</select>
+		
+		<p>Select your visit duration</p>
+		<input type="radio" name="visitduration" value="20" required>
+		<label>20 mins</label>
+		<br>
+		<input type="radio" name="visitduration" value="40" required>
+		<label>40 mins</label>
+		<br>
+		<input type="radio" name="visitduration" value="60" required>
+		<label>60 mins</label>
+		<br>
+		<input type="submit" value="Confirm">
+
+	</form>
+
+	<p th:if="${errorMsg != null}" th:text=" ${errorMsg}" style="color: red"></p>
+	
+	<form action="Homepage">
+		    <input type="submit" value="Homepage" />
+	</form>
+	
+</body>
+</html>

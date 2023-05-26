@@ -1,0 +1,20 @@
+body {
+	background-image: linear-gradient(180deg, rgba(240,240,240), rgba(255,255,255));
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+#logodiv {
+	text-align: center;
+}
+
+#formdiv {
+	text-align: center;
+}
+
+input {
+	height: 35px;
+	width: 300px;
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Your Expected Time of Entrance</title>
+</head>
+<body>
+
+	<form th:if="${errorMsg == null}" action="CreateRealTimeReservation" method="POST">
+
+		<p>Expected Time of Entrance: <p th:text=" ${ete}"></p></p>
+
+		<input type="hidden" id="supermarketid" name="supermarketid" th:attr="value = ${sid}">
+		<input type="hidden" id="visitduration" name="visitduration" th:attr="value = ${vd}">
+		<input type="submit" id="confirm" name="confirm" value="Confirm">
+
+	</form>
+	
+	<form action="Homepage">
+		<input type="submit" value="Cancel" />
+	</form>
+	
+	<p th:if="${errorMsg != null}" th:text=" ${errorMsg}" style="color: red"></p>
+	
+</body>
+</html>

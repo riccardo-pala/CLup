@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>CLup - Edit Password</title>
+<link rel="stylesheet" href="css/EditFavSupermarket.css">
+</head>
+
+<body>
+	<div id="formdiv" th:if="${errorMsg == null}">
+		<form th:if="${supermarkets != null && !supermarkets.isEmpty()}" action="EditFavSupermarket" method="POST">
+			<label>Select your favourite supermarket:</label>
+			<br>
+			<select name="favsupermarketid" required>
+				<option th:if="${favsupermarket==null}" disabled selected value> -- select an option -- </option>
+				<option th:if="${favsupermarket!=null}" th:text="${favsupermarket.name} + ',' + ' ' + ${favsupermarket.address}"  th:attr="value = ${favsupermarket.id}" selected>
+				<option disabled></option>
+				<option th:each="s : ${supermarkets}" th:text="${s.name} + ',' + ' ' + ${s.address}"  th:attr="value = ${s.id}">
+			</select>
+			<br>
+			<input type="submit" value="Edit Favourite Supermarket">
+		</form>
+		<br>
+		<form th:if="${favsupermarket!=null}" action="EditFavSupermarket" method="POST">
+			<input type="hidden" name="favsupermarketid" value="-1" />
+			<input type="submit" value="Delete Favourite Supermarket" />
+		</form>
+	</div>
+	
+	<p th:text=" ${errorMsg}" style="color: red"></p>
+	
+	<form class="buttonform" action="Homepage">
+	    <input type="submit" id="hbutton" value="Homepage" />
+	</form>
+</body>
+
+</html>

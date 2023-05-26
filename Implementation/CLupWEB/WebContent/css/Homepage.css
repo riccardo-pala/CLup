@@ -1,0 +1,56 @@
+body {
+	background-image: linear-gradient(180deg, rgba(240,240,240), rgba(255,255,255));
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+#logodiv {
+	text-align: center;
+}
+#logo {
+	width:300px;
+}
+
+#buttondiv1, #buttondiv2 {
+	text-align: center;
+	height:70px;
+}
+
+#mrbutton {
+    height: 60px;
+    width: 300px;
+    color: black;
+    border: 2px solid;
+    border-radius: 4px;
+    background-color: rgba(0,112,255);
+    font-size: 25px;
+    font-family: fantasy;
+    letter-spacing: 2px;
+	box-shadow: black 0px 0px 10px;
+}
+
+.buttonform {
+	width:350px;
+	display: inline-block;
+    text-align: center;
+}
+#bnbutton, #pyvbutton, #spbutton {
+	height:60px;
+	width:300px;
+    color: black;
+    border: 2px solid;
+    border-radius: 4px;
+    background-color: rgba(255,102,36);
+    font-size: 25px;
+    font-family: fantasy;
+    letter-spacing: 2px;
+    box-shadow: black 0px 0px 10px;
+}
+
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}

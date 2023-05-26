@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>CLup - Plan Your Visit</title>
+<link rel="stylesheet" href="css/Homepage.css">
+</head>
+
+<body>
+	
+	<form th:if="${supermarkets != null && !supermarkets.isEmpty() && selectedsupermarket==null && errorMsg==null}" action="GoToPlanYourVisit" method="POST">
+	
+		<label>Select the supermarket:</label>
+		<select name="supermarketid" required>
+			<option disabled selected value> -- select an option -- </option>
+			<option th:each="s : ${supermarkets}" th:text="${s.name} + ',' + ' ' + ${s.address}"  th:attr="value = ${s.id}">
+		</select>
+		<br>
+		<input type="submit" value="Compute available schedules">
+	</form>
+	
+	<form th:if="${selectedsupermarket!=null && schedule != null && !schedule.isEmpty()}" action="CreatePlannedReservation" method="POST">
+	
+		<label>Selected supermarket:</label>
+		<p th:text="${selectedsupermarket.name} + ',' + ' ' + ${selectedsupermarket.address}"></p>
+		<input type="hidden" id="superId" name="supermarketId" th:attr="value = ${selectedsupermarket.id}">
+	
+		<p>Select your visit duration</p>
+		<input type="radio" name="Visit" value="20" required>
+		<label>20 mins</label>
+		<br>
+		<input type="radio" name="Visit" value="40" required>
+		<label>40 mins</label>
+		<br>
+		<input type="radio" name="Visit" value="60" required>
+		<label>60 mins</label>
+		<br>
+		
+		<p th:text=" ${exceedMsg}" style="color: red"><br></p>
+		
+		<label>Select the time of entrance</label>
+       	<select name="TimeVisit" required>
+			<option th:each="s : ${schedule}" th:text="${s}"  th:attr="value = ${s}">
+		</select>
+		<br>
+		<input type="submit" value="Plan your visit"><br>
+		
+	</form>
+	
+	<p th:text=" ${errorMsg}" style="color: red"><br></p>
+	
+	<form action="Homepage">
+		    <input type="submit" value="Homepage" />
+	</form>
+
+</body>

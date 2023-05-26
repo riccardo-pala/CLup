@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration</title>
+</head>
+<body>
+	<h1>Registration Form</h1>
+	<form action="CheckRegistration" method="POST">
+		<input type="text" name="username" placeholder="Username" required> <br><br>
+		<input type="text" name="firstname" placeholder="Firstname" required> <br><br>
+		<input type="text" name="lastname" placeholder="Lastname" required> <br><br>
+		<input type="password" name="pwd" placeholder="Password" required><br><br>
+		<input type="submit" value="SignIn"><br>
+		<p th:text=" ${errorMsg}"></p>
+	</form>
+</body>
+</html>

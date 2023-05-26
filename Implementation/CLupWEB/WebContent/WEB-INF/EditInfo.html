@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>CLup - Edit Info</title>
+<link rel="stylesheet" href="css/EditInfo.css">
+</head>
+
+<body>
+	<div id="formdiv" th:if="${errorMsg==null}">
+		<form action="EditInfo" method="POST">
+			<label>Username:</label>
+			<input type="text" name="username" th:value="${usrn}" placeholder="Username"><br><br>
+			<label>Firstname:</label>
+			<input type="text" name="firstname" th:value="${frstn}" placeholder="Firstname"><br><br>
+			<label>Lastname:</label>
+			<input type="text" name="lastname" th:value="${lstn}" placeholder="Lastname"><br><br>
+			<input type="submit" value="Edit Profile">
+			<p th:text=" ${errorMsg2}" style="color: red"></p>
+		</form>
+	</div>
+	<form class="buttonform" action="Homepage">
+	    <input type="submit" id="hbutton" value="Homepage" />
+	</form>
+	<p th:text=" ${errorMsg}" style="color: red"></p>
+</body>
+
+</html>

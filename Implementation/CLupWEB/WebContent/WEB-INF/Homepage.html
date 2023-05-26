@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>CLup - Homepage</title>
+<link rel="stylesheet" href="css/Homepage.css">
+</head>
+
+<body>
+	<div id="logodiv"><img src="img/logo.png" id="logo" alt="clup logo"></div>
+	
+	<div id="welcomediv">
+		<p th:text="${'Nice to see you again ' + session.user.firstname + ' ' + session.user.lastname}"></p>
+	</div>
+	<div id="buttondiv1">
+		<form action="GoToMyReservation">
+		    <input type="submit" id="mrbutton" value="My Reservation" />
+		</form>
+	</div>
+	<div id="buttondiv2">
+		<form class="buttonform" action="GoToBookNow">
+		    <input type="submit" id="bnbutton" value="Book Now!" />
+		</form>
+		<form class="buttonform" action="GoToPlanYourVisit">
+		    <input type="submit" id="pyvbutton" value="Plan Your Visit" />
+		</form>
+		<form class="buttonform" action="GoToShowProfile">
+		    <input type="submit" id="spbutton" value="Show Profile" />
+		</form>
+	</div>
+</body>
+</html>

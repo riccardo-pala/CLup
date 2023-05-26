@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="ISO-8859-1">
+
+	<title>Your QRcode</title>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript">
+		function generateBarCode() {
+			var nric = $('#text').val();
+			var url = 'https://api.qrserver.com/v1/create-qr-code/?data=' + nric + '&amp;size=200x200';
+			$('#barcode').attr('src', url);
+		}
+	</script>
+	
+</head>
+
+<body onload="generateBarCode()">
+
+	<img id='barcode' 
+		src="" 
+		alt="QRcode" 
+		title="QRcode" 
+		width="200" 
+		height="200" />
+
+</body>
+</html>

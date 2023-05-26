@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>CLup - My Reservation</title>
+<link rel="stylesheet" href="css/MyReservation.css">
+</head>
+
+<body>	
+	
+	<div th:if="${errorMsg == null && reservation != null}">
+	
+		<p>My Reservation</p>
+	
+		<table>
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Duration of the Visit</th>
+					<th>Supermarket</th>
+					<th th:if="${reservationtype=='p'}">Start Time</th>
+					<th th:if="${reservationtype=='r'}">Ticket Number</th>
+					<th th:if="${ete != null && reservationtype=='r'}">ETE</th>
+					<th th:if="${ete != null && reservationtype=='r' || reservationtype=='p'}">Maximum Tolerated Delay</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td th:if="${reservationtype=='p'}">Planned Reservation</td>
+					<td th:if="${reservationtype=='r'}">Real Time Reservation</td>
+					<td th:text="${reservation.visitDuration} + ' ' + minutes"></td>
+					<td th:text="${reservation.supermarket.name}"></td>					
+					<td th:if="${reservationtype=='p'}" th:text="${reservation.startTime}"></td>
+					<td th:if="${reservationtype=='r'}" th:text="${reservation.ticketNumber}"></td>
+					<td th:if="${ete != null && reservationtype=='r'}" th:text="${ete}"></td>
+					<td th:if="${ete != null && reservationtype=='r' || reservationtype=='p'}" th:text="${reservation.maxToleratedDelay}"></td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<form th:if="${errorMsg == null && reservation != null && ete==null && reservationtype=='r'}" class="buttonform" action="ShowETE">
+		    <input type="submit" id="etebutton" value="Expected Time of Entrance" />
+		</form>
+		
+		<form th:if="${errorMsg == null && reservation != null}" class="buttonform" action="ShowQRCode">
+		    <input type="submit" id="qrbutton" value="QRcode" />
+		</form>
+		
+		<form th:if="${errorMsg == null && reservation != null}" th:action="DeleteReservation">
+			<input type="hidden" name="reservationid" th:value="${reservation.code}"/>
+			<input type="submit" value="Delete" />
+		</form>
+	</div>
+	
+	<p th:if="${errorMsg != null}" th:text="${errorMsg}"></p>
+	
+	<form action="Homepage">
+		<input type="submit" value="Homepage" />
+	</form>
+	
+</body>
