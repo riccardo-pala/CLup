@@ -1,9 +1,9 @@
 # CLup | Software Engineering II Project
 
 ## Authors
-- @riccardo-pala
-- @AlessandroImmordino98
-- @polva98
+* **[Riccardo Pala](https://github.com/riccardo-pala)**
+* **[Alessandro Immordino](https://github.com/AlessandroImmordino98)**
+* **[Giacomo Polvanesi](https://github.com/polva98)**
 
 ## Scope
 CLup is a booking service for grocery shopping. This software-to-be is focused on easing the access to the supermarkets during coronavirus emergency which imposed strict rules that must be observed by society. Deployment and usage of this application allow store managers to monitor entries and prevent people forming crowds outside the supermarkets. The service wants to ensure that distances between people are maintained and restrictions about the limited number of accesses in a building are respected.
